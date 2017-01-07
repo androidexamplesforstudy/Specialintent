@@ -5,32 +5,34 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.TextView;
+import android.widget.EditText;
 
-public class MainActivity extends AppCompatActivity {
+public class FormActivity extends AppCompatActivity {
 
-    TextView username;
-    TextView password;
-    TextView email;
+    EditText username;
+    EditText password;
+    EditText email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_form);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        username = (TextView) findViewById(R.id.textView);
-        password = (TextView) findViewById(R.id.textView2);
-        email = (TextView) findViewById(R.id.textView3);
+        username = (EditText) findViewById(R.id.editText);
+        password = (EditText) findViewById(R.id.editText2);
+        email = (EditText) findViewById(R.id.editText3);
 
         findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent (MainActivity.this, FormActivity.class);
-                startActivity(intent);
+                Intent intent = new Intent (FormActivity.this, MainActivity.class);
+                
             }
         });
+
 
     }
 
